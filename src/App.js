@@ -2,6 +2,7 @@ import "./styles.css";
 import whatsappSvg from "./whatsapp.svg";
 import crossSvg from "./cross.svg";
 import chatsvg from "./chat.svg";
+import sendsvg from "./send.svg";
 import { IoMdSend } from "react-icons/io";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // Create some dom elements.
@@ -90,11 +91,11 @@ class WAChatBox {
     return (
       <div className="fixed bottom-1 right-0 p-3" id="full-waBox">
         <div
-          className="max-w-sm overflow-hidden rounded-lg bg-white shadow-lg"
+          className="max-w-sm overflow-hidden rounded-lg shadow-lg"
           style="display: none"
           id="wa-box"
         >
-          <div className="relative flex p-8 py-4">
+          <div className="avatar-div relative flex p-8 py-4">
             <div className="relative">
               <img
                 src={this.user.avatar}
@@ -107,16 +108,16 @@ class WAChatBox {
               <div className="name-head font-bold">{this.user.name}</div>
               <div className="replies-in">{this.user.status}</div>
             </div>
-            <div className="text-bold absolute right-2 top-2">
+            <div className="cross-btn text-bold absolute right-2 top-2">
               <a id="toggleWaBox" className="cursor-pointer">
                 <div
-                  className="w-4 h-4"
+                  className="w-8 h-8"
                   dangerouslySetInnerHTML={{ __html: crossSvg }}
                 />
               </a>
             </div>
           </div>
-          <div className="chat-bg relative bg-[#E6DDD4] p-7">
+          <div className="chat-bg relative bg-[#E6DDD4] p-5">
             <div className="chat-box">
               <div className="chat-name">Admin</div>
               <div
@@ -125,22 +126,19 @@ class WAChatBox {
               ></div>
               <div className="chat-time">13:25</div>
             </div>
-          </div>
-          
-          <div className="chat-bg relative bg-[#E6DDD4] p-7">
-            <div className="chat-box">
-              <div className="chat-name">Admin</div>
-              <div
-                className="chat-message"
-                dangerouslySetInnerHTML={{ __html: this.text }}
-              ></div>
+            <div className="msg-left">
+              <div className="chat-name-left">Admin</div>
+              <div>Hello, how can I help you?</div>
               <div className="chat-time">13:25</div>
             </div>
+            <div className="msg-right">
+              <div className="chat-name-right">Bikram</div>
+              <div>Vicks ki goli lo, hich kich dur karo</div>
+              <div className="chat-time">13:27</div>
+            </div>
           </div>
-          <div className="bg-white text-input">
-            {/* <textarea name="hello" placeholder="Enter a message..." id="msg">
-              working
-            </textarea> */}
+
+          <div className="text-input">
             <div class="chat-input">
               <textarea
                 placeholder="Enter a message..."
@@ -149,9 +147,12 @@ class WAChatBox {
                 rows={2}
                 cols={38}
               ></textarea>
-              <button class="send-btn material-symbols-outlined">
-              Send
-              </button>
+            </div>
+            <div className="send-btn">
+              <div
+                className="w-5 h-5 m-4"
+                dangerouslySetInnerHTML={{ __html: sendsvg }}
+              />
             </div>
             {/* <div className="chat-btn"> id="open-wa" */}
             {/* <a className="hover:no-underline">
@@ -170,7 +171,6 @@ class WAChatBox {
         >
           <div className={this.button_text ? "flex mx-4" : "flex"}>
             <div className="chat-whatsapp-icon">
-              {/* <div className="w-5 h-5" dangerouslySetInnerHTML={{ __html: whatsappSvg }} /> */}
               <div
                 className="w-5 h-5"
                 dangerouslySetInnerHTML={{ __html: chatsvg }}
