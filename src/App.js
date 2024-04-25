@@ -1,13 +1,9 @@
+// import React, { useState, useEffect } from 'react';
 import "./styles.css";
-import whatsappSvg from "./whatsapp.svg";
 import crossSvg from "./cross.svg";
 import chatsvg from "./chat.svg";
 import sendsvg from "./send.svg";
-import { IoMdSend } from "react-icons/io";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 // Create some dom elements.
-
-// import 'primeicons/primeicons.css';
 
 class WAChatBox {
   iframe = null;
@@ -49,14 +45,9 @@ class WAChatBox {
     let iframeDocument = this.iframe.contentDocument;
     iframeDocument.body.append(this.render());
     iframeDocument.body.append(chatBoxStyle);
-    // iframeDocument.body.querySelector("#open-wa").onclick = (e) => {
-    //   this.link && window.open(this.link, "popup", "width=600,height=600");
-    // };
 
     iframeDocument.querySelectorAll("#toggleWaBox").forEach((el) => {
-      //
       el.addEventListener("click", () => {
-        //alert("jhdbsd");
         let action = "show";
         if (
           iframeDocument.querySelector("#wa-box").classList.contains("show")
@@ -87,7 +78,59 @@ class WAChatBox {
       });
     });
   };
+  
+
   render = () => {
+
+    // =============================================
+    // consts and functions for the message sending
+    // =============================================
+    
+    // const [socket, setSocket] = useState(null);
+    // const [userMessage, setUserMessage] = useState('');
+    // const [chatMessages, setChatMessages] = useState([]);
+
+
+    // useEffect(() => {
+    //   const newSocket = io('http://192.168.29.30:4000');
+    //   setSocket(newSocket);
+  
+    //   return () => {
+    //     newSocket.disconnect();
+    //   };
+    // }, []);
+  
+    // useEffect(() => {
+    //   if (socket) {
+    //     socket.on('connect', () => {
+    //       console.log('Connected to server');
+    //     });
+  
+    //     socket.on('socket-join-message', userRoom => {
+    //       sessionStorage.setItem('userRoomid', userRoom);
+    //       console.log(userRoom);
+    //     });
+  
+    //     socket.on('client-receive-message', message => {
+    //       setChatMessages(prevMessages => [...prevMessages, { message, type: 'incoming' }]);
+    //     });
+    //   }
+    // }, [socket]);
+
+
+    // ====================================
+    // Handle send message from chatbox
+    // ====================================
+
+    // const handleMessageSend = () => {
+    //   console.log("hello");
+    //   if (userMessage.trim() !== '' && socket) {
+    //     socket.emit('client-send-message', userMessage, sessionStorage.getItem('userRoomid'));
+    //     setChatMessages(prevMessages => [...prevMessages, { message: userMessage, type: 'outgoing' }]);
+    //     setUserMessage('');
+    //   }
+    // };
+
     return (
       <div className="fixed bottom-1 right-0 p-3" id="full-waBox">
         <div
@@ -126,14 +169,29 @@ class WAChatBox {
               ></div>
               <div className="chat-time">13:25</div>
     </div>*/}
+
             <div className="msg-left">
               <div className="chat-name-left">Admin</div>
-              <div>Hello, how can I help you?</div>
+              <p>Hello, how can I help you?</p>
               <div className="chat-time">13:25</div>
             </div>
+
+            {/* Testing to send populate message */}
+
+            {/* {chatMessages.map((message, index) => (
+              <li key={index} className={`chat ${message.type}`}>
+                <div className="msg-right">
+                  <div className="chat-name-right">User</div>
+                  <p>{message.message}</p>
+                  <div className="chat-time">13:35</div>
+                </div>
+              </li>
+            ))} */}
+
+
             <div className="msg-right">
               <div className="chat-name-right">Bikram</div>
-              <div>Vicks ki goli lo, hich kich dur karo</div>
+              <p id="user-msg">Vicks ki goli lo, hich kich dur karo</p>
               <div className="chat-time">13:27</div>
             </div>
           </div>
@@ -146,23 +204,17 @@ class WAChatBox {
                 required
                 rows={2}
                 cols={38}
+                // value={userMessage}
+                // onChange={(e) => setUserMessage(e.target.value)}
               ></textarea>
             </div>
             <div className="send-btn">
-              <div
+              <button
                 className="w-5 h-5 m-4"
                 dangerouslySetInnerHTML={{ __html: sendsvg }}
+                // onClick={handleMessageSend}
               />
             </div>
-            {/* <div className="chat-btn"> id="open-wa" */}
-            {/* <a className="hover:no-underline">
-               <textarea name="hello" id="" cols="30" rows="10">working</textarea> 
-                 <div className="chat-btn">
-                  <div className="w-4 h-4 mr-2" dangerouslySetInnerHTML={{ __html: whatsappSvg }} />
-                  Start Chat
-                </div> 
-              </a> */}
-            {/* </div> */}
           </div>
         </div>
         <div
