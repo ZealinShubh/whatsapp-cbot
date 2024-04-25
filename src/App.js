@@ -118,14 +118,14 @@ class WAChatBox {
             </div>
           </div>
           <div className="chat-bg relative bg-[#E6DDD4] p-5">
-            <div className="chat-box">
+            {/*<div className="chat-box">
               <div className="chat-name">Admin</div>
               <div
                 className="chat-message"
                 dangerouslySetInnerHTML={{ __html: this.text }}
               ></div>
               <div className="chat-time">13:25</div>
-            </div>
+    </div>*/}
             <div className="msg-left">
               <div className="chat-name-left">Admin</div>
               <div>Hello, how can I help you?</div>
