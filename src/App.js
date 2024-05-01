@@ -81,56 +81,6 @@ class WAChatBox {
   
 
   render = () => {
-
-    // =============================================
-    // consts and functions for the message sending
-    // =============================================
-    
-    // const [socket, setSocket] = useState(null);
-    // const [userMessage, setUserMessage] = useState('');
-    // const [chatMessages, setChatMessages] = useState([]);
-
-
-    // useEffect(() => {
-    //   const newSocket = io('http://192.168.29.30:4000');
-    //   setSocket(newSocket);
-  
-    //   return () => {
-    //     newSocket.disconnect();
-    //   };
-    // }, []);
-  
-    // useEffect(() => {
-    //   if (socket) {
-    //     socket.on('connect', () => {
-    //       console.log('Connected to server');
-    //     });
-  
-    //     socket.on('socket-join-message', userRoom => {
-    //       sessionStorage.setItem('userRoomid', userRoom);
-    //       console.log(userRoom);
-    //     });
-  
-    //     socket.on('client-receive-message', message => {
-    //       setChatMessages(prevMessages => [...prevMessages, { message, type: 'incoming' }]);
-    //     });
-    //   }
-    // }, [socket]);
-
-
-    // ====================================
-    // Handle send message from chatbox
-    // ====================================
-
-    // const handleMessageSend = () => {
-    //   console.log("hello");
-    //   if (userMessage.trim() !== '' && socket) {
-    //     socket.emit('client-send-message', userMessage, sessionStorage.getItem('userRoomid'));
-    //     setChatMessages(prevMessages => [...prevMessages, { message: userMessage, type: 'outgoing' }]);
-    //     setUserMessage('');
-    //   }
-    // };
-
     return (
       <div className="fixed bottom-1 right-0 p-3" id="full-waBox">
         <div
@@ -138,7 +88,7 @@ class WAChatBox {
           style="display: none"
           id="wa-box"
         >
-          <div className="avatar-div relative flex p-8 py-4">
+          {/* <div className="avatar-div relative flex p-8 py-4">
             <div className="relative">
               <img
                 src={this.user.avatar}
@@ -159,9 +109,22 @@ class WAChatBox {
                 />
               </a>
             </div>
+          </div> */}
+          <div>
+          <iframe
+            src="http://10.66.66.3/Client/3"
+            width="380"
+            height="380"
+            frameBorder="0"
+            allowFullScreen
+          />
+            {/* <iframe
+              src="http://10.66.66.3/Client/3"
+              style={{height: 'auto', width: 'auto'}}
+            ></iframe> */}
           </div>
-          <div className="chat-bg relative bg-[#E6DDD4] p-5">
-            {/*<div className="chat-box">
+          {/* <div className="chat-bg relative bg-[#E6DDD4] p-5"> */}
+          {/*<div className="chat-box">
               <div className="chat-name">Admin</div>
               <div
                 className="chat-message"
@@ -170,15 +133,15 @@ class WAChatBox {
               <div className="chat-time">13:25</div>
     </div>*/}
 
-            <div className="msg-left">
+          {/* <div className="msg-left">
               <div className="chat-name-left">Admin</div>
               <p>Hello, how can I help you?</p>
               <div className="chat-time">13:25</div>
-            </div>
+            </div> */}
 
-            {/* Testing to send populate message */}
+          {/* Testing to send populate message */}
 
-            {/* {chatMessages.map((message, index) => (
+          {/* {chatMessages.map((message, index) => (
               <li key={index} className={`chat ${message.type}`}>
                 <div className="msg-right">
                   <div className="chat-name-right">User</div>
@@ -188,15 +151,14 @@ class WAChatBox {
               </li>
             ))} */}
 
-
-            <div className="msg-right">
+          {/* <div className="msg-right">
               <div className="chat-name-right">Bikram</div>
               <p id="user-msg">Vicks ki goli lo, hich kich dur karo</p>
               <div className="chat-time">13:27</div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="text-input">
+          {/* <div className="text-input">
             <div class="chat-input">
               <textarea
                 placeholder="Enter a message..."
@@ -215,7 +177,7 @@ class WAChatBox {
                 // onClick={handleMessageSend}
               />
             </div>
-          </div>
+          </div> */}
         </div>
         <div
           className="relative float-right my-4 flex cursor-pointer justify-center rounded-full bg-black p-1 font-semibold text-white need-btn"

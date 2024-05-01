@@ -13,6 +13,7 @@ body {
 
 .avatar-div{
   background-color: #112d41;
+
 }
 
 .chat-bg::before {
@@ -45,6 +46,12 @@ body {
   opacity: 0;
   transition: margin-left 0.3s ease 0s, opacity 0.3s ease 0s, visibility 0.3s ease 0s;
 }
+
+
+/* .max-w-sm{
+  height: 500px;
+  width: 400px;
+} */
 
 .chat-box.show {
   /* display: none; */
